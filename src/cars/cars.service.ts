@@ -6,24 +6,12 @@ import { v4 as uuid } from 'uuid';
 @Injectable()
 export class CarsService {
   private cars: Car[] = [
-    {
-      id: uuid(),
-      brand: 'Audi',
-      color: 'black',
-      model: 'A4',
-    },
-    {
-      id: uuid(),
-      brand: 'Honda',
-      color: 'white',
-      model: 'Civic',
-    },
-    {
-      id: uuid(),
-      brand: 'Jeep',
-      color: 'silver',
-      model: 'Wrangler',
-    },
+    // {
+    //   id: uuid(),
+    //   brand: 'Audi',
+    //   color: 'black',
+    //   model: 'A4',
+    // },
   ];
 
   public findAll(): Car[] {
@@ -69,5 +57,9 @@ export class CarsService {
     this.findOneById(id);
     this.cars = this.cars.filter((car) => car.id !== id);
     return { message: `Car with id ${id} deleted` };
+  }
+
+  fillCarsWithSeedData(brands: Car[]) {
+    this.cars = brands;
   }
 }
